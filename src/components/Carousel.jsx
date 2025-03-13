@@ -95,7 +95,7 @@ const Carousel = () => {
                         {/* "More" button as requested */}
                         <Link
                             to="/about-us"
-                            className="absolute bottom-4 right-4 z-20 inline-flex items-center bg-amber-400 hover:bg-amber-500 text-amber-900 py-1.5 px-3.5 rounded-full text-xs font-medium transition-colors shadow-md"
+                            className="absolute top-4 right-4 z-20 inline-flex items-center bg-amber-400 hover:bg-amber-500 text-amber-900 py-1 px-2.5 md:py-2 md:px-4 rounded-full text-xs md:text-sm font-medium transition-colors shadow-md"
                         >
                             More <ArrowRightIcon className="ml-1 w-3.5 h-3.5" />
                         </Link>
@@ -132,8 +132,8 @@ const Carousel = () => {
                                 key={index}
                                 onClick={() => handleManualNavigation(index)}
                                 className={`w-3 h-3 rounded-full transition-all ${index === currentIndex
-                                        ? "bg-amber-400 w-5"
-                                        : "bg-white/60 hover:bg-white/80"
+                                    ? "bg-amber-400 w-5"
+                                    : "bg-white/60 hover:bg-white/80"
                                     }`}
                                 aria-label={`Go to slide ${index + 1}`}
                             />
