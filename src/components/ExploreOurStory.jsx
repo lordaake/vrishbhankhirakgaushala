@@ -9,9 +9,7 @@ const ExploreOurStory = () => {
     const scrollContainerRef = useRef(null);
     const [showLeftScroll, setShowLeftScroll] = useState(false);
     const [showRightScroll, setShowRightScroll] = useState(true);
-
-    // Remove firstRender state to eliminate the bounce animation
-    // that causes unnecessary movement
+    const [initialScrollDone, setInitialScrollDone] = useState(false);
 
     const cardItems = [
         {
@@ -66,7 +64,7 @@ const ExploreOurStory = () => {
         return () => container.removeEventListener('scroll', checkScroll);
     }, []);
 
-    // Center active item - simplified and improved
+    // Set initial position and handle navigation
     useEffect(() => {
         try {
             const container = scrollContainerRef.current;
@@ -75,23 +73,28 @@ const ExploreOurStory = () => {
             const activeItem = container.querySelector('[data-active="true"]');
             if (!activeItem) return;
 
-            // Always center the active item
+            // Calculate the position that centers the active item
             const containerWidth = container.offsetWidth;
             const itemLeft = activeItem.offsetLeft;
             const itemWidth = activeItem.offsetWidth;
-
-            // Calculate center position with guard against negative values
             const scrollPosition = Math.max(0, itemLeft - (containerWidth / 2) + (itemWidth / 2));
 
-            // Scroll to center the active item
-            container.scrollTo({
-                left: scrollPosition,
-                behavior: 'smooth'
-            });
+            // On first render, immediately set position without animation 
+            if (!initialScrollDone) {
+                // Directly set scroll position to show the active item centered
+                container.scrollLeft = scrollPosition;
+                setInitialScrollDone(true);
+            } else {
+                // For subsequent navigation, smoothly center the active item
+                container.scrollTo({
+                    left: scrollPosition,
+                    behavior: 'smooth'
+                });
+            }
         } catch (error) {
-            console.error("Error scrolling to active item:", error);
+            console.error("Error positioning navigation:", error);
         }
-    }, [location.pathname]); // Only run when path changes
+    }, [location.pathname, initialScrollDone]);
 
     // Scroll handling functions
     const scrollLeft = () => {
