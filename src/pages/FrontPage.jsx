@@ -3,11 +3,11 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import Carousel from "../components/Carousel";
 import Footer from "../components/Footer";
-import aboutUsImage from "../assets/about-us.jpg";
-import CalvesImage from "../assets/calves.png";
-import RadharaniImage from "../assets/Radharani2.png";
+import aboutUsImage from "../assets/about-us.webp";
+import CalvesImage from "../assets/calves.webp";
+import RadharaniImage from "../assets/Radharani2.webp";
 import missionVideo from "../assets/Our_mission_Gaushala2.mp4";
-import videoPoster from "../assets/video-poster.jpg";
+import videoPoster from "../assets/video-poster.webp";
 
 // Constants for reusable styles
 const SECTION_BASE_CLASSES = "w-full px-4";

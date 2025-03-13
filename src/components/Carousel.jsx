@@ -12,7 +12,7 @@ import vrshbhanu52 from "../assets/vrshbhanu52.webp";
 import vrshbhanu92 from "../assets/vrshbhanu92.webp";
 import vrshbhanu77 from "../assets/vrshbhanu77.webp";
 import vrshbhanu101 from "../assets/vrshbhanu101.webp";
-import feeding from "../assets/feeding.png"
+import feeding from "../assets/feeding.webp"
 
 const Carousel = () => {
     const images = [
@@ -67,7 +67,7 @@ const Carousel = () => {
     };
 
     return (
-        <div className="relative mx-auto w-full max-w-6xl">
+        <div className="relative mx-auto w-full max-w-6xl md:mt-6">
             <div className="relative">
                 {/* Main Carousel Container */}
                 <div
@@ -132,8 +132,8 @@ const Carousel = () => {
                                 key={index}
                                 onClick={() => handleManualNavigation(index)}
                                 className={`w-2 h-2 rounded-full transition-all ${index === currentIndex
-                                        ? "bg-amber-400"
-                                        : "bg-white/40 hover:bg-white/60"
+                                    ? "bg-amber-400"
+                                    : "bg-white/40 hover:bg-white/60"
                                     }`}
                                 aria-label={`Go to slide ${index + 1}`}
                             />

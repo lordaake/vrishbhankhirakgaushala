@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Footer from "../components/Footer";
 import ExploreOurStory from "../components/ExploreOurStory";
-import MissionImage1 from "../assets/feeding.png";
+import MissionImage1 from "../assets/feeding.webp";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 const OurMission = () => {
@@ -90,18 +90,6 @@ const OurMission = () => {
                             ))}
                         </div>
 
-                        {/* Call to Action - Simplified for mobile */}
-                        <div className="bg-gradient-to-br from-[#8dbbe6] to-[#4a90e2] p-4 sm:p-6 rounded-xl text-center">
-                            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">
-                                {t("joinOurMission")}
-                            </h3>
-                            <p className="text-white/90 text-sm sm:text-base mb-4 max-w-lg mx-auto">
-                                {t("missionCTA")}
-                            </p>
-                            <button className="bg-white text-[#2c5c7a] px-6 py-2 sm:px-8 sm:py-3 rounded-full font-medium hover:bg-[#e6f4ea] transition-colors shadow-md">
-                                {t("getInvolved")}
-                            </button>
-                        </div>
                     </div>
                 </section>
             </main>

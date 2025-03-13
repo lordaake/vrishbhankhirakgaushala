@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Footer from "../components/Footer";
-import calvesImage from "../assets/calves.png";
+import calvesImage from "../assets/calves.webp";
 import { FaRupeeSign, FaTrash, FaCopy, FaQrcode, FaDonate } from "react-icons/fa";
 
 const Donate = () => {

@@ -44,7 +44,7 @@ const Footer = () => {
                             aria-label="Instagram"
                         >
                             <img
-                                src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                                src="https://cdn-icons-png.flaticon.com/512/2111/2111463.webp"
                                 alt={t("footerInstagramAlt")}
                                 className="w-8 h-8 md:w-10 md:h-10 filter invert"
                             />
@@ -57,7 +57,7 @@ const Footer = () => {
                             aria-label="Facebook"
                         >
                             <img
-                                src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                                src="https://cdn-icons-png.flaticon.com/512/733/733547.webp"
                                 alt={t("footerFacebookAlt")}
                                 className="w-8 h-8 md:w-10 md:h-10 filter invert"
                             />
@@ -67,7 +67,7 @@ const Footer = () => {
                     {/* Location - Improved for mobile */}
                     <div className="flex flex-col md:flex-row items-center text-center md:text-left gap-2 max-w-md">
                         <img
-                            src="https://cdn-icons-png.flaticon.com/512/484/484167.png"
+                            src="https://cdn-icons-png.flaticon.com/512/484/484167.webp"
                             alt={t("footerLocationAlt")}
                             className="w-6 h-6 md:w-7 md:h-7 filter invert flex-shrink-0"
                         />

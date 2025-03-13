@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import Footer from "../components/Footer";
 import ExploreOurStory from "../components/ExploreOurStory";
-import SereneView from "../assets/sereneview.png";
+import SereneView from "../assets/sereneview.webp";
 
 const AboutUs = () => {
     const { t } = useTranslation();

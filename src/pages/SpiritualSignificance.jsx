@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import ExploreOurStory from "../components/ExploreOurStory";
 import Footer from "../components/Footer";
-import SpiritualImage1 from "../assets/mothercow.png";
+import SpiritualImage1 from "../assets/mothercow.webp";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 const SpiritualSignificance = () => {

@@ -3,9 +3,9 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Footer from "../components/Footer";
 import ExploreOurStory from "../components/ExploreOurStory";
-import HistoryImage1 from "../assets/history.png";
+import HistoryImage1 from "../assets/history.webp";
 import HistoryImage3 from "../assets/king.webp";
-import HistoryImage2 from "../assets/temple.png";
+import HistoryImage2 from "../assets/temple.webp";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 const OurHistory = () => {

@@ -2,10 +2,10 @@ import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import Footer from "../components/Footer";
 import ExploreOurStory from "../components/ExploreOurStory";
-import ActivityImage1 from "../assets/grass.png";
-import ActivityImage2 from "../assets/milkingbucket.png";
-import ActivityImage3 from "../assets/ladlitemple.png";
-import ActivityImage4 from "../assets/caringcow.png";
+import ActivityImage1 from "../assets/grass.webp";
+import ActivityImage2 from "../assets/milkingbucket.webp";
+import ActivityImage3 from "../assets/ladlitemple.webp";
+import ActivityImage4 from "../assets/caringcow.webp";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 const GaushalaActivities = () => {
