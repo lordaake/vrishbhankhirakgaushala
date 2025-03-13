@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline"; // Add this import
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
 const ExploreOurStory = () => {
     const { t } = useTranslation();
@@ -9,7 +9,9 @@ const ExploreOurStory = () => {
     const scrollContainerRef = useRef(null);
     const [showLeftScroll, setShowLeftScroll] = useState(false);
     const [showRightScroll, setShowRightScroll] = useState(true);
-    const [firstRender, setFirstRender] = useState(true);
+
+    // Remove firstRender state to eliminate the bounce animation
+    // that causes unnecessary movement
 
     const cardItems = [
         {
@@ -47,78 +49,67 @@ const ExploreOurStory = () => {
     // Check if should show scroll indicators
     const checkScroll = () => {
         const container = scrollContainerRef.current;
-        if (container) {
-            setShowLeftScroll(container.scrollLeft > 20);
-            setShowRightScroll(container.scrollLeft < container.scrollWidth - container.clientWidth - 20);
-        }
+        if (!container) return;
+
+        setShowLeftScroll(container.scrollLeft > 20);
+        setShowRightScroll(container.scrollLeft < container.scrollWidth - container.clientWidth - 20);
     };
 
     // Handle scroll events
     useEffect(() => {
         const container = scrollContainerRef.current;
-        if (container) {
-            container.addEventListener('scroll', checkScroll);
-            checkScroll(); // Initial check
-            return () => container.removeEventListener('scroll', checkScroll);
-        }
+        if (!container) return;
+
+        container.addEventListener('scroll', checkScroll);
+        checkScroll(); // Initial check
+
+        return () => container.removeEventListener('scroll', checkScroll);
     }, []);
 
-    // Scroll active item into view & add initial scroll animation
+    // Center active item - simplified and improved
     useEffect(() => {
-        if (scrollContainerRef.current) {
-            const activeItem = scrollContainerRef.current.querySelector('[data-active="true"]');
-            if (activeItem) {
-                // Calculate the scroll position to center the active item
-                const containerWidth = scrollContainerRef.current.offsetWidth;
-                const itemLeft = activeItem.offsetLeft;
-                const itemWidth = activeItem.offsetWidth;
-                const scrollLeft = itemLeft - (containerWidth / 2) + (itemWidth / 2);
+        try {
+            const container = scrollContainerRef.current;
+            if (!container) return;
 
-                // Scroll to the active item
-                scrollContainerRef.current.scrollTo({
-                    left: scrollLeft,
-                    behavior: 'smooth'
-                });
-            }
+            const activeItem = container.querySelector('[data-active="true"]');
+            if (!activeItem) return;
 
-            // Add a gentle intro scroll animation to show scrollability on first render
-            if (firstRender) {
-                setTimeout(() => {
-                    scrollContainerRef.current.scrollTo({
-                        left: 40,
-                        behavior: 'smooth'
-                    });
+            // Always center the active item
+            const containerWidth = container.offsetWidth;
+            const itemLeft = activeItem.offsetLeft;
+            const itemWidth = activeItem.offsetWidth;
 
-                    // Then scroll back to simulate a "bounce" showing scrollability
-                    setTimeout(() => {
-                        scrollContainerRef.current.scrollTo({
-                            left: 0,
-                            behavior: 'smooth'
-                        });
-                        setFirstRender(false);
-                    }, 700);
-                }, 500);
-            }
+            // Calculate center position with guard against negative values
+            const scrollPosition = Math.max(0, itemLeft - (containerWidth / 2) + (itemWidth / 2));
+
+            // Scroll to center the active item
+            container.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            });
+        } catch (error) {
+            console.error("Error scrolling to active item:", error);
         }
-    }, [location.pathname, firstRender]);
+    }, [location.pathname]); // Only run when path changes
 
     // Scroll handling functions
     const scrollLeft = () => {
-        if (scrollContainerRef.current) {
-            scrollContainerRef.current.scrollBy({
-                left: -200,
-                behavior: 'smooth'
-            });
-        }
+        if (!scrollContainerRef.current) return;
+
+        scrollContainerRef.current.scrollBy({
+            left: -200,
+            behavior: 'smooth'
+        });
     };
 
     const scrollRight = () => {
-        if (scrollContainerRef.current) {
-            scrollContainerRef.current.scrollBy({
-                left: 200,
-                behavior: 'smooth'
-            });
-        }
+        if (!scrollContainerRef.current) return;
+
+        scrollContainerRef.current.scrollBy({
+            left: 200,
+            behavior: 'smooth'
+        });
     };
 
     return (
@@ -137,7 +128,7 @@ const ExploreOurStory = () => {
                         </button>
                     )}
 
-                    {/* Right scroll button/indicator - always visible first time */}
+                    {/* Right scroll button */}
                     {showRightScroll && (
                         <button
                             onClick={scrollRight}
@@ -148,7 +139,7 @@ const ExploreOurStory = () => {
                         </button>
                     )}
 
-                    {/* Scrollable container with clear visual start/end */}
+                    {/* Scrollable container */}
                     <div
                         className="overflow-x-auto py-3 px-4 flex relative scrollbar-hide"
                         ref={scrollContainerRef}
@@ -162,11 +153,11 @@ const ExploreOurStory = () => {
                                         to={`${item.path}${item.hash}`}
                                         data-active={isActive}
                                         className={`group relative whitespace-nowrap flex items-center gap-2 text-sm font-medium py-2 px-3 rounded-full transition-all duration-300 flex-shrink-0 ${isActive
-                                            ? "bg-amber-200 text-amber-900 shadow-inner"
-                                            : "text-amber-800 bg-white/70 hover:bg-amber-100"
+                                                ? "bg-amber-200 text-amber-900 shadow-inner"
+                                                : "text-amber-800 bg-white/70 hover:bg-amber-100"
                                             }`}
                                     >
-                                        <span className="text-base transition-transform duration-300 group-hover:rotate-6">
+                                        <span className="text-base">
                                             {item.icon}
                                         </span>
                                         <span>{item.title}</span>
@@ -178,10 +169,13 @@ const ExploreOurStory = () => {
 
                     {/* Scroll indicator dots */}
                     <div className="flex justify-center mt-1 mb-1 space-x-1">
-                        {cardItems.map((_, index) => (
+                        {cardItems.map((item, index) => (
                             <div
                                 key={index}
-                                className={`h-1 w-1 rounded-full bg-amber-800 opacity-40 ${location.pathname === cardItems[index].path ? 'w-3 opacity-100' : ''}`}
+                                className={`h-1 rounded-full bg-amber-800 transition-all duration-300 ${location.pathname === item.path
+                                        ? 'w-3 opacity-100'
+                                        : 'w-1 opacity-40'
+                                    }`}
                             />
                         ))}
                     </div>
@@ -196,17 +190,18 @@ const ExploreOurStory = () => {
                                 key={index}
                                 to={`${item.path}${item.hash}`}
                                 className={`group relative flex items-center gap-2 text-sm font-medium transition-all duration-300 p-2 rounded-lg ${isActive
-                                    ? "bg-amber-200 text-amber-900 shadow-inner"
-                                    : "text-amber-800 hover:text-amber-900 hover:bg-amber-100 hover:shadow-md"
+                                        ? "bg-amber-200 text-amber-900 shadow-inner"
+                                        : "text-amber-800 hover:text-amber-900 hover:bg-amber-100 hover:shadow-md"
                                     }`}
                             >
-                                <span className="text-lg transition-transform duration-300 group-hover:rotate-6">
+                                <span className="text-lg">
                                     {item.icon}
                                 </span>
                                 <span>{item.title}</span>
-                                {/* Underline indicator with pointer-events disabled */}
                                 <span
-                                    className={`pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full bg-amber-900 origin-left transition-transform duration-300 ${isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                                    className={`pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full bg-amber-900 origin-left transition-transform duration-300 ${isActive
+                                            ? "scale-x-100"
+                                            : "scale-x-0 group-hover:scale-x-100"
                                         }`}
                                 />
                             </Link>
