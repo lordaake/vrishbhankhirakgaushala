@@ -3,16 +3,25 @@ import { useSwipeable } from "react-swipeable";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 
+import vrshbhanu71 from "../assets/vrshbhanu71.webp";
+import vrshbhanu61 from "../assets/vrshbhanu61.webp";
+import vrshbhanu32 from "../assets/vrshbhanu32.webp";
+import vrshbhanu40 from "../assets/vrshbhanu40.webp";
+import vrshbhanu52 from "../assets/vrshbhanu52.webp";
+import vrshbhanu92 from "../assets/vrshbhanu92.webp";
+import vrshbhanu77 from "../assets/vrshbhanu77.webp";
+import vrshbhanu101 from "../assets/vrshbhanu101.webp";
+
 const Carousel = () => {
     const images = [
-        "src/assets/vrshbhanu71.webp",
-        "src/assets/vrshbhanu61.webp",
-        "src/assets/vrshbhanu32.webp",
-        "src/assets/vrshbhanu40.webp",
-        "src/assets/vrshbhanu52.webp",
-        "src/assets/vrshbhanu92.webp",
-        "src/assets/vrshbhanu77.webp",
-        "src/assets/vrshbhanu101.webp",
+        vrshbhanu71,
+        vrshbhanu61,
+        vrshbhanu32,
+        vrshbhanu40,
+        vrshbhanu52,
+        vrshbhanu92,
+        vrshbhanu77,
+        vrshbhanu101,
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -24,8 +33,8 @@ const Carousel = () => {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 768);
         };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     const goToNext = () => {
@@ -79,10 +88,7 @@ const Carousel = () => {
                             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                         >
                             {images.map((src, index) => (
-                                <div
-                                    key={index}
-                                    className="flex-shrink-0 w-full h-full relative"
-                                >
+                                <div key={index} className="flex-shrink-0 w-full h-full relative">
                                     <img
                                         src={src}
                                         alt={`Slide ${index + 1}`}
@@ -136,8 +142,7 @@ const Carousel = () => {
                             <button
                                 key={index}
                                 onClick={() => handleManualNavigation(index)}
-                                className={`w-1.5 h-1.5 rounded-full transition-all ${index === currentIndex ? "bg-white" : "bg-white/40"
-                                    }`}
+                                className={`w-1.5 h-1.5 rounded-full transition-all ${index === currentIndex ? "bg-white" : "bg-white/40"}`}
                                 aria-label={`Go to slide ${index + 1}`}
                             />
                         ))}
