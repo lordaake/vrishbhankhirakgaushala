@@ -1,0 +1,216 @@
+{
+    "home": "Home",
+    "aboutUs": "About Us",
+    "contactUsHeader": "Contact Us",
+    "donateHeader": "Donate",
+    "learnMore": "Learn More",
+    "discoverMission": "Discover Our Mission",
+    "supportMission": "Support Our Mission",
+    "divineLoveRadharani": "Divine Love and Service",
+    "radharaniDescription": "Glory to Ladli Lal! Glory to Barsane Wari! Glory to Mother Cow! Vrishabhanu Khirak Gaushala is a sacred sanctuary devoted to the love, protection, and free service of Gau Mata. Rooted in the divine legacy of Radharani and King Vrishabhanu—her revered father—this Gaushala epitomizes selfless seva and the preservation of ancient cow protection traditions.",
+    "missionDescription": "Our mission is to safeguard the eternal bond between humanity and Gau Mata by offering a non-commercial haven where cows are nourished, cared for, and revered. Through free distribution of milk to sadhus, and compassionate care, we honor the ancient Vedic principles of selfless service.",
+    "aboutUsDescription": "We proudly present the divine darshan of Shri Vrishabhanu Khirak Gaushala in Barsana—a place where history, spirituality, and selfless service converge. Re-established by our revered Shri Bhagwandas Bhandari (Bhandari Baba), this ancient sanctuary cares for over 400 cows every day and continues to inspire devotees with its free, unconditional service.",
+    "donateNow": "Donate Now",
+    "supportDescription": "Your generous contributions empower us to continue this sacred legacy. Every donation directly supports the free feeding, medical care, and shelter of our cows, ensuring that the pure essence of seva—untainted by commercial interests—remains alive.",
+    "donateDetails": "Contribute by providing green fodder, dry fodder (bhusha), khal (cattle feed), flour, or essential medicines. Whether you sponsor a day’s feeding or choose to adopt a cow for life, your support sustains the divine service of Gau Mata.",
+    "media": "Media",
+    "posts": "Posts",
+    "videos": "Videos",
+    "galleries": "Galleries",
+    "exploreGallery": "Explore Gallery",
+    "readMore": "Read More",
+    "backToPosts": "Back To Posts",
+    "ourHistory": {
+        "historyTitle": "History of Vrishabhanu Khirak Gaushala",
+        "legacyTitle": "The Timeless Legacy of Divine Service",
+        "historyText": "Vrishabhanu Khirak Gaushala's sacred origins trace back to King Vrishabhanu, the father of Srimati Radharani. As the chief of Barsana, Vrishabhanu was renowned for his commitment to cow protection, overseeing a vast herd of 10 lakh cows1. His devotion laid the spiritual foundation for Gau Mata preservation in Braj. In recent times, Shri Bhagwandas Bhandari, known as Bhandari Baba, reestablished this ancient Gaushala. Under his guidance, it flourished as a center for free seva to Gau Mata, nurturing hundreds of cows and instilling devotion in countless devotees. The Gaushala's history intertwines with the story of Kamsa, the tyrant ruler of the Vrishni kingdom8. Legend tells that when Kamsa visited Barsana, the divine service at the Gaushala moved him deeply. Overwhelmed by the purity of the free service and devotion of the sakhis, he joined the ranks of devotees, dedicating himself to Gau Mata's sacred cause. Surrounded by sacred landmarks like Brahmagiri Parvat, the Gaushala is interwoven with Braj's spiritual fabric. It stands as a beacon of faith, service, and devotion, carrying forward the traditions of King Vrishabhanu and Bhandari Baba.",
+        "connectionTitle": "Divine Connections in Braj",
+        "connectionText": "Situated just behind the temple of Radha Rani and near other holy sites, our Gaushala stands as a living testament to the deep spiritual heritage of Braj. Devotees from far and wide come here to experience the unique blend of history, devotion, and free service that defines our sanctuary."
+    },
+    "aboutUsParagraph1": "Located in the sacred land of Barsana, Vrishabhanu Khirak Gaushala is one of India's most ancient and spiritually significant cow sanctuaries. Every day, more than 400 cows receive free, loving care—symbolizing the timeless bond between humans and Gau Mata.",
+    "aboutUsParagraph2": "In our Gaushala, nothing is sold. There is no commercialization—no milk, no cow dung, and no edible products are traded. All by products such as butter milk, milk, ghee etc are used in the service of Radha Rani in the Ladli Temple and for sadhus, preserving the pure essence of seva.",
+    "aboutUsParagraph4": "We warmly invite all devotees to experience the divine darshan, participate in seva, and immerse themselves in the serene, spiritual atmosphere of our Gaushala. Our mission is to restore the Vrishbhanu Khirak Gaushala to its former glory, reminiscent of times when it was home to 11 lakhs (1.1 million) cows. ",
+    "rescuedCattle": "🌱 400 Cows",
+    "enlargedGaushalaViewAlt": "Enlarged view of Vrishabhanu Khirak Gaushala",
+    "ourMission": "Our Mission",
+    "missionImageAlt": "Devotees feeding cows at the Gaushala",
+    "missionHeadline1": "Caring for Cows, Nurturing Souls",
+    "missionParagraph1": "Our mission is to uphold the sacred tradition of cow protection by providing a nurturing, non-commercial haven for Gau Mata. Every act of care—whether feeding, medical attention, or shelter—is offered as a pure act of devotion.",
+    "missionHeadline2": "Free Seva – A Tradition Beyond Profit",
+    "missionParagraph2": "At Vrishabhanu Khirak Gaushala, all services are rendered free of charge. No milk, cow dung, or any cow products are sold; instead, they are freely distributed to sadhus, saints, farmers, and devotees. This selfless practice embodies our commitment to pure seva.",
+    "missionHeadline3": "Honoring Divine Legacies",
+    "missionParagraph3": "From the divine guidance of King Vrishabhanu and Radharani to the legacy established by Shri Bhagwandas Bhandari, our Gaushala is a beacon of unwavering devotion and selfless service. It stands as a testament to a long-standing tradition of free, heartfelt care.",
+    "missionHeadline4": "An Invitation to All Devotees",
+    "missionParagraph4": "We invite you to join our sacred journey. Visit the Gaushala, partake in the divine darshan, and contribute to the legacy of free seva. Your presence enriches our collective devotion and helps preserve this ancient tradition.",
+    "missionHeadline5": "Embracing Vedic Values",
+    "missionParagraph5": "Our work is deeply inspired by Vedic teachings—emphasizing selflessness, compassion, and devotion. Every service rendered here is an offering to Gau Mata, reinforcing the spiritual heritage of Braj.",
+    "missionHeadline6": "A Call to Join Our Sacred Service",
+    "missionParagraph6": "We welcome every devotee to contribute, whether by serving or simply being present. Together, we continue the divine legacy of Vrishabhanu Khirak Gaushala. Radhe Radhe!",
+    "enlargedMissionImageAlt": "Enlarged depiction of our mission",
+    "spiritualSignificance": {
+        "title": "Spiritual Significance",
+        "imageAlt": "Spiritual depiction of Gau Mata",
+        "headline1": "Gau Mata: The Eternal Nurturer",
+        "paragraph1": "In the ancient traditions of Sanatan Dharma, Gau Mata is revered as the nurturing mother who sustains all life. Our Gaushala is a living sanctuary where her divine grace is expressed through free, selfless care and devotion.",
+        "headline2": "The Sacred Heart of Braj",
+        "paragraph2": "Situated in Barsana and surrounded by holy landmarks such as Brahmagiri Parvat and Nande Khirak, our Gaushala embodies the spiritual ethos of Braj. It is a place where devotees experience the profound connection between the divine and the humble act of serving cows.",
+        "headline3": "A Testament to Unwavering Seva",
+        "paragraph3": "Every day, free milk and care are provided to sadhus, saints, and local devotees—a true tribute to Gau Mata and a reflection of our timeless values of compassion and selfless service.",
+        "headline4": "Experience the Divine Legacy",
+        "paragraph4": "We invite you to visit Vrishabhanu Khirak Gaushala and experience the sanctity of free seva. Each moment here is a prayer, each act of care a tribute to the divine.",
+        "headline5": "A Living Legacy of Devotion",
+        "quote": "Have darshan of Ladli Ji’s Gaushala and feel the divine grace that sustains this eternal tradition.",
+        "paragraph5": "Our Gaushala stands as a living monument to selfless seva and unwavering devotion—a sacred space where every service is an offering to Gau Mata.",
+        "headline6": "Join the Sacred Service",
+        "paragraph6": "We invite all devotees to participate in the divine service at Vrishabhanu Khirak Gaushala. Let your presence and support be a part of this ancient legacy. Radhe Radhe!",
+        "modalImageAlt": "Enlarged spiritual depiction of Gau Mata"
+    },
+    "gaushalaActivities": {
+        "title": "Activities at Vrishabhanu Khirak Gaushala",
+        "activity1": {
+            "title": "Feeding the Cows",
+            "description": "Every day, volunteers and devotees participate in feeding over 400 cows, ensuring that each one receives a nutritious meal. This ritual is a sacred offering to Gau Mata.",
+            "imageAlt": "Feeding the cows at the Gaushala"
+        },
+        "activity2": {
+            "title": "Offering Milk to Sadhus",
+            "description": "Free, pure milk is distributed during daily aarti to sadhus, saints, and local devotees, reinforcing our commitment to selfless service.",
+            "imageAlt": "Offering milk to sadhus"
+        },
+        "activity3": {
+            "title": "Preparing Sacred Offerings",
+            "description": "Milk collected from the cows is used to prepare curd, butter, and other sacred offerings for temple rituals, blending devotion with daily service.",
+            "imageAlt": "Preparing milk offerings"
+        },
+        "activity4": {
+            "title": "Caring for Calves and Elderly Cows",
+            "description": "Special care is given to the vulnerable—nurturing calves and providing tender care to elderly cows, ensuring every life is treated with respect and love.",
+            "imageAlt": "Caring for calves and elderly cows"
+        }
+    },
+    "donateDescription1": "Serving cows is our sacred duty. At Vrishabhanu Khirak Gaushala, hundreds of cows are cared for daily with free, selfless service. Your donation helps us provide food, medical care, and shelter—preserving this divine legacy.",
+    "donateDescription2": "You can support our mission by contributing green fodder, dry fodder (bhusha), khal, flour, or essential medicines. Your generosity sustains our ancient practice of free seva.",
+    "donateDescription3": "Every contribution makes a difference. Your support enables us to continue our divine service for generations to come.",
+    "footerInstagramAlt": "Instagram Icon",
+    "footerFacebookAlt": "Facebook Icon",
+    "footerLocationAlt": "Location Icon",
+    "addressFooter": "Vrishabhanu Khirak Gaushala, Barsana, Uttar Pradesh, India",
+    "spiritualGreeting": "Glory to Ladli Lal! Glory to Barsane Wari! Glory to Mother Cow!",
+    "sereneViewAlt": "A serene view of Vrishabhanu Khirak Gaushala",
+    "exploreOurStory": {
+        "title": "Explore Our Story",
+        "toggleOpen": "Click to collapse",
+        "toggleClose": "Click to expand",
+        "link": {
+            "ourHistory": {
+                "title": "Our History",
+                "description": "Discover our origins, including the divine legacy of King Vrishabhanu, Radharani, and the transformative story of Kamsa."
+            },
+            "ourMission": {
+                "title": "Our Mission",
+                "description": "Learn about our commitment to free, selfless service and preserving the ancient traditions of cow protection."
+            },
+            "spiritualSignificance": {
+                "title": "Spiritual Significance",
+                "description": "Explore the sacred values and divine connections that inspire our work."
+            },
+            "gaushalaActivities": {
+                "title": "Activities at the Gaushala",
+                "description": "Experience the free seva, daily rituals, and heartfelt bhajans that define our sacred sanctuary."
+            }
+        }
+    },
+    "contactUs": {
+        "headerTitle": "Contact Vrishabhanu Ji Gaushala",
+        "headerDescription": "We are here to serve, guide, and celebrate the divine spirit with you. Contact us for inquiries or to plan your visit.",
+        "callUsTitle": "Call Us",
+        "phoneNumber": "097285 01800",
+        "emailUsTitle": "Email Us",
+        "emailAddress": "vrishabhanujigaushala@gmail.com",
+        "connectWithUsTitle": "Connect with Us",
+        "connectWithUsDescription": "Follow us on social media for updates on our sacred service and upcoming events.",
+        "visitUsTitle": "Visit Us",
+        "visitUsDescription": "Experience the divine peace of our Gaushala at any time.",
+        "open247": "Open 24/7",
+        "supportUsTitle": "Support Us",
+        "supportUsDescription": "Your support helps us continue our sacred service to Gau Mata and preserve our ancient heritage.",
+        "mapsTitle": "Find Us on Google Maps"
+    },
+    "donate": {
+        "heroSection": {
+            "title": "Support Shri Brish Bhan Khirak Gaushala",
+            "alt": "Calves at the Gaushala",
+            "description": "Your divine contribution sustains the sacred cows and preserves our ancient Vedic traditions. Every rupee supports their nourishment, healthcare, and the free service we provide to honor Gau Mata."
+        },
+        "donationItems": {
+            "item1": {
+                "name": "One Day Full Gaushala Maintenance"
+            },
+            "item2": {
+                "name": "One Day Bhusha Seva (Dry Fodder)"
+            },
+            "item3": {
+                "name": "Flour & Khal Seva (Essential Nutrition)"
+            },
+            "item4": {
+                "name": "One Day Green Fodder Seva"
+            },
+            "item5": {
+                "name": "Khal Seva for 1 Day (Oil Cake)"
+            },
+            "item6": {
+                "name": "Wheat Flour for 1 Day"
+            },
+            "item7": {
+                "name": "Total Cost of Flour & Khal for 1 Day"
+            }
+        },
+        "selectSeva": {
+            "title": "Select Your Seva",
+            "addToCart": "Add to Cart"
+        },
+        "customDonation": {
+            "title": "Custom Donation Amount",
+            "customName": "Custom Donation",
+            "placeholder": "Enter amount in ₹",
+            "buttonText": "Add Custom Amount"
+        },
+        "sevaBasket": {
+            "title": "Your Seva Basket",
+            "clearCart": "Clear",
+            "emptyCartMessage": "Your seva basket is empty",
+            "totalSevaAmount": "Total Seva Amount:"
+        },
+        "upi": {
+            "title": "Instant UPI Donation",
+            "qrAlt": "UPI QR Code",
+            "copyButtonText": "Copy UPI ID",
+            "copiedButtonText": "Copied!"
+        },
+        "bankTransfer": {
+            "title": "Bank Transfer Details",
+            "accountNameLabel": "Account Name",
+            "accountNameValue": "Shri Brish Bhan Khirak Gaushala",
+            "accountNumberLabel": "Account Number",
+            "accountNumberValue": "45870200000137",
+            "bankBranchLabel": "Bank & Branch",
+            "bankBranchValue": "Bank of Baroda, Barsana",
+            "ifscLabel": "IFSC Code",
+            "ifscValue": "BARB0BARSAN"
+        }
+    },
+    "mediaPosts": "Posts",
+    "mediaVideos": "Videos",
+    "mediaGalleries": "Galleries",
+    "discoverSacredStories": "Discover Sacred Stories & Divine Wisdom",
+    "watchAndExperienceTheDivine": "Watch and Experience the Divine",
+    "exploreOurSacredMoments": "Explore Our Sacred Moments & Divine Visuals",
+    "noPostsYet": "No posts yet.",
+    "noVideosYet": "No videos yet.",
+    "noGalleriesYet": "No galleries yet.",
+    "clickToExpand": "Click To Expand",
+    "spiritualSignificance.closingMantra": "I offer my respect to Shri Radha Rani, the divine nurturer and protector of all. Jai Shri Radha!",
+    "spiritualSignificance.imageCaption": "Calves being nurtured with love.",
+    "exploreOurStory.link.aboutUs.title": "About Us",
+    "exploreOurStory.link.aboutUs.description": "Read about our divine legacy and the sacred journey of cow protection."
+}
