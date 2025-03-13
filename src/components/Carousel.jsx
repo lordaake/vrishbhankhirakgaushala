@@ -12,9 +12,11 @@ import vrshbhanu52 from "../assets/vrshbhanu52.webp";
 import vrshbhanu92 from "../assets/vrshbhanu92.webp";
 import vrshbhanu77 from "../assets/vrshbhanu77.webp";
 import vrshbhanu101 from "../assets/vrshbhanu101.webp";
+import feeding from "../assets/feeding.png"
 
 const Carousel = () => {
     const images = [
+        feeding,
         vrshbhanu71,
         vrshbhanu61,
         vrshbhanu32,
@@ -161,8 +163,8 @@ const Carousel = () => {
                                 key={index}
                                 onClick={() => handleManualNavigation(index)}
                                 className={`w-2 h-2 rounded-full transition-all ${index === currentIndex
-                                        ? "bg-amber-400 w-4"
-                                        : "bg-white/40 hover:bg-white/60"
+                                    ? "bg-amber-400 w-4"
+                                    : "bg-white/40 hover:bg-white/60"
                                     }`}
                                 aria-label={`Go to slide ${index + 1}`}
                             />
@@ -173,23 +175,5 @@ const Carousel = () => {
         </div>
     );
 };
-
-// Add this to your global CSS file or tailwind.config.js
-// @keyframes shine {
-//   to {
-//     transform: translateX(400%) skewX(-30deg);
-//   }
-// }
-// @keyframes pulse-slow {
-//   50% {
-//     opacity: 0.5;
-//   }
-// }
-// .animate-shine {
-//   animation: shine 4s ease-in-out infinite;
-// }
-// .animate-pulse-slow {
-//   animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-// }
 
 export default Carousel;
