@@ -56,6 +56,26 @@ html {
   scrollbar-width: none;
 }
 
+@keyframes shine {
+  to {
+    transform: translateX(400%) skewX(-30deg);
+  }
+}
+
+@keyframes pulse-slow {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-shine {
+  animation: shine 4s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

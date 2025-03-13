@@ -57,11 +57,17 @@ const AboutUs = () => {
                             <div className="hidden md:flex flex-col gap-6">
                                 <div className="h-32 bg-green-100/50 rounded-2xl p-4 border-2 border-white shadow-md">
                                     <h3 className="text-emerald-700 font-bold mb-2">{t("rescuedCattle")}</h3>
-                                    <p className="text-sm text-gray-600">Safe & loved since 2005</p>
+                                    <p className="text-sm text-gray-600">
+                                        {t("safeAndLoved")}
+                                    </p>
                                 </div>
                                 <div className="h-32 bg-amber-100/50 rounded-2xl p-4 border-2 border-white shadow-md">
-                                    <h3 className="text-amber-700 font-bold mb-2">🌍 Sustainable Living</h3>
-                                    <p className="text-sm text-gray-600">Eco-friendly practices daily</p>
+                                    <h3 className="text-amber-700 font-bold mb-2">
+                                        {t("sustainableLiving")}
+                                    </h3>
+                                    <p className="text-sm text-gray-600">
+                                        {t("ecoFriendlyPractices")}
+                                    </p>
                                 </div>
                             </div>
                         </div>
