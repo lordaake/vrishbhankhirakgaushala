@@ -129,12 +129,10 @@ const Navbar = ({ language, changeLanguage }) => {
                         </div>
                     </div>
                 </div>
-
                 <div className="bg-white-900/90 backdrop-blur-md shadow-lg border-t border-yellow-600">
                     <div className="max-w-7xl mx-auto flex items-center justify-center h-16 px-6">
                         <div className="flex items-center justify-center space-x-8 w-full">
                             <DesktopLink to="/" label={t("home")} activeCondition={isActive("/")} />
-                            {/* About Us Dropdown */}
                             <div className="relative">
                                 <button
                                     onClick={() => setAboutUsOpen(!aboutUsOpen)}
@@ -152,8 +150,6 @@ const Navbar = ({ language, changeLanguage }) => {
                                 <AboutUsDropdown isOpen={aboutUsOpen} onClose={() => setAboutUsOpen(false)} t={t} />
                             </div>
                             <DesktopLink to="/contact-us" label={t("contactUsHeader")} activeCondition={isActive("/contact-us")} />
-
-                            {/* Media Dropdown */}
                             <div className="relative">
                                 <button
                                     onClick={() => setMediaOpen(!mediaOpen)}
@@ -174,173 +170,198 @@ const Navbar = ({ language, changeLanguage }) => {
                 </div>
             </div>
 
-            {/* Mobile Navbar */}
+            {/* Mobile Navbar - Redesigned */}
             <div className="md:hidden fixed top-0 left-0 right-0 z-50">
-                <div className="flex items-center justify-between px-4 h-20 bg-gradient-to-r from-indigo-800 to-black backdrop-blur-md shadow-md border-b border-yellow-600">
-                    <Link to="/" className="flex items-center transition-transform hover:scale-105">
-                        <img className="h-12 w-12 drop-shadow-2xl" src={logo} alt="Logo" />
-                    </Link>
-                    <Link to="/" className="flex flex-col items-center transition hover:opacity-90">
-                        <span className="text-sm sm:text-base font-serif font-bold text-white drop-shadow-md">
-                            श्री वृषभान खिरक गौशाला
-                        </span>
-                        <span className="text-sm sm:text-base font-serif font-bold text-yellow-300 drop-shadow-md">
-                            Shri Vrishbhan Khirak Gaushala
-                        </span>
-                    </Link>
+                {/* Upper bar with logo and menu button */}
+                <div className="flex items-center justify-between px-4 h-16 bg-gradient-to-r from-indigo-800 to-black backdrop-blur-md shadow-md border-b border-yellow-600">
+                    <div className="flex items-center">
+                        <Link to="/" className="transition-transform hover:scale-105">
+                            <img className="h-10 w-10 drop-shadow-2xl" src={logo} alt="Logo" />
+                        </Link>
+                    </div>
+
+                    {/* Centered text container */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 text-center">
+                        <Link to="/" className="flex flex-col items-center transition hover:opacity-90">
+                            <span className="text-xs font-serif font-bold text-white drop-shadow-md">
+                                श्री वृषभान खिरक गौशाला
+                            </span>
+                            <span className="text-xs font-serif font-bold text-yellow-300 drop-shadow-md">
+                                Shri Vrishbhan Khirak Gaushala
+                            </span>
+                        </Link>
+                    </div>
+
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="p-3 rounded-full bg-yellow-300/20 hover:bg-yellow-300/40 focus:outline-none transition-all duration-300 ease-in-out"
+                        className="p-2 rounded-full bg-yellow-300/20 hover:bg-yellow-300/40 focus:outline-none transition-all duration-300 ease-in-out"
                         aria-label="Toggle mobile menu"
                         aria-expanded={mobileMenuOpen}
                     >
                         {mobileMenuOpen ? (
-                            <XMarkIcon className="h-7 w-7 text-yellow-300 transition-transform duration-300 rotate-90" />
+                            <XMarkIcon className="h-6 w-6 text-yellow-300 transition-transform duration-300 rotate-90" />
                         ) : (
-                            <Bars3Icon className="h-7 w-7 text-gray-200 hover:text-yellow-300 transition-transform duration-300" />
+                            <Bars3Icon className="h-6 w-6 text-gray-200 hover:text-yellow-300 transition-transform duration-300" />
                         )}
                     </button>
                 </div>
 
-                <div className={`fixed inset-0 md:hidden z-40 transform ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out`}>
+                {/* Mobile Menu Overlay */}
+                <div
+                    className={`fixed inset-0 bg-black bg-opacity-50 z-40 ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'} transition-opacity duration-300`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    aria-hidden="true"
+                >
+                    {/* Stop propagation to prevent closing when clicking inside the menu */}
                     <div
-                        className={`fixed inset-0 bg-black bg-opacity-40 transition-opacity duration-300 ${mobileMenuOpen ? "opacity-100 delay-300" : "opacity-0 pointer-events-none"}`}
-                        onClick={() => setMobileMenuOpen(false)}
-                    ></div>
-
-                    <div className="fixed top-0 left-0 w-64 h-full bg-white p-6 overflow-y-auto transition-transform duration-300 ease-in-out">
-                        <button
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="mb-6 p-2 inline-flex items-center justify-center text-gray-900 hover:text-yellow-300 transition focus:outline-none"
-                            aria-label="Close mobile menu"
-                        >
-                            <XMarkIcon className="h-6 w-6" />
-                        </button>
-
-                        <nav className="flex flex-col gap-4">
-                            <Link
-                                to="/"
-                                className="group relative transition transform hover:scale-105 hover:shadow-lg px-3 py-1 rounded-full"
+                        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-xl overflow-y-auto transform ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className="p-5">
+                            <button
                                 onClick={() => setMobileMenuOpen(false)}
+                                className="mb-6 p-2 inline-flex items-center justify-center text-gray-900 hover:text-yellow-500 transition focus:outline-none"
+                                aria-label="Close mobile menu"
                             >
-                                <span className={`text-lg font-medium ${isActive("/") ? "bg-yellow-400 text-gray-900 font-bold border border-black border-opacity-10" : "text-gray-900 group-hover:bg-yellow-400 group-hover:text-gray-900"} px-3 py-1 rounded-full`}>
-                                    {t("home")}
-                                </span>
-                            </Link>
+                                <XMarkIcon className="h-6 w-6" />
+                            </button>
 
-                            {/* About Us Dropdown in Mobile */}
-                            <div className="relative">
-                                <button
-                                    onClick={() => setAboutUsOpen(!aboutUsOpen)}
-                                    className="group flex items-center justify-between transition transform hover:scale-105 px-3 py-1 rounded-full focus:outline-none"
+                            <nav className="flex flex-col gap-4">
+                                <Link
+                                    to="/"
+                                    className="group relative py-2 px-3 rounded-md hover:bg-yellow-100 transition-colors"
+                                    onClick={() => setMobileMenuOpen(false)}
                                 >
-                                    <span className="text-lg font-medium px-3 py-1 rounded-full">{t("aboutUs")}</span>
-                                    <ChevronDownIcon className={`h-5 w-5 transition-transform ${aboutUsOpen ? "rotate-180" : ""}`} />
-                                </button>
-                                {aboutUsOpen && (
-                                    <div className="mt-2 pl-4">
-                                        {[
-                                            { to: "/about-us", hash: "#about-us", icon: "🌿", label: t("exploreOurStory.link.aboutUs.title") },
-                                            { to: "/our-history", hash: "#our-history", icon: "📜", label: t("exploreOurStory.link.ourHistory.title") },
-                                            { to: "/our-mission", hash: "#our-mission", icon: "🌱", label: t("exploreOurStory.link.ourMission.title") },
-                                            { to: "/spiritual-significance", hash: "#spiritual-significance", icon: "🪔", label: t("exploreOurStory.link.spiritualSignificance.title") },
-                                            { to: "/activities-at-gaushala", hash: "#activities-at-gaushala", icon: "🐄", label: t("exploreOurStory.link.gaushalaActivities.title") },
-                                        ].map((item, index) => (
+                                    <span className={`text-base font-medium ${isActive("/") ? "text-yellow-600 font-bold" : "text-gray-900"}`}>
+                                        {t("home")}
+                                    </span>
+                                </Link>
+
+                                {/* About Us Dropdown in Mobile */}
+                                <div className="relative">
+                                    <button
+                                        onClick={() => setAboutUsOpen(!aboutUsOpen)}
+                                        className="w-full flex items-center justify-between py-2 px-3 rounded-md hover:bg-yellow-100 transition-colors"
+                                    >
+                                        <span className={`text-base font-medium ${isActive("/about-us") ? "text-yellow-600 font-bold" : "text-gray-900"}`}>
+                                            {t("aboutUs")}
+                                        </span>
+                                        <ChevronDownIcon
+                                            className={`h-5 w-5 text-gray-500 transition-transform duration-300 ${aboutUsOpen ? "rotate-180" : ""}`}
+                                        />
+                                    </button>
+
+                                    {aboutUsOpen && (
+                                        <div className="mt-1 ml-4 pl-2 border-l-2 border-yellow-300 space-y-1">
+                                            {[
+                                                { to: "/about-us", hash: "#about-us", icon: "🌿", label: t("exploreOurStory.link.aboutUs.title") },
+                                                { to: "/our-history", hash: "#our-history", icon: "📜", label: t("exploreOurStory.link.ourHistory.title") },
+                                                { to: "/our-mission", hash: "#our-mission", icon: "🌱", label: t("exploreOurStory.link.ourMission.title") },
+                                                { to: "/spiritual-significance", hash: "#spiritual-significance", icon: "🪔", label: t("exploreOurStory.link.spiritualSignificance.title") },
+                                                { to: "/activities-at-gaushala", hash: "#activities-at-gaushala", icon: "🐄", label: t("exploreOurStory.link.gaushalaActivities.title") },
+                                            ].map((item, index) => (
+                                                <Link
+                                                    key={index}
+                                                    to={`${item.to}${item.hash}`}
+                                                    className="flex items-center gap-2 py-2 px-3 text-sm text-gray-800 hover:text-yellow-600 transition-colors rounded-md"
+                                                    onClick={() => setMobileMenuOpen(false)}
+                                                >
+                                                    <span>{item.icon}</span>
+                                                    {item.label}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+
+                                <Link
+                                    to="/contact-us"
+                                    className="group relative py-2 px-3 rounded-md hover:bg-yellow-100 transition-colors"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    <span className={`text-base font-medium ${isActive("/contact-us") ? "text-yellow-600 font-bold" : "text-gray-900"}`}>
+                                        {t("contactUsHeader")}
+                                    </span>
+                                </Link>
+
+                                {/* Media Dropdown in Mobile */}
+                                <div className="relative">
+                                    <button
+                                        onClick={() => setMediaOpen(!mediaOpen)}
+                                        className="w-full flex items-center justify-between py-2 px-3 rounded-md hover:bg-yellow-100 transition-colors"
+                                    >
+                                        <span className={`text-base font-medium ${isActiveMedia() ? "text-yellow-600 font-bold" : "text-gray-900"}`}>
+                                            {t("media")}
+                                        </span>
+                                        <ChevronDownIcon
+                                            className={`h-5 w-5 text-gray-500 transition-transform duration-300 ${mediaOpen ? "rotate-180" : ""}`}
+                                        />
+                                    </button>
+
+                                    {mediaOpen && (
+                                        <div className="mt-1 ml-4 pl-2 border-l-2 border-yellow-300 space-y-1">
                                             <Link
-                                                key={index}
-                                                to={`${item.to}${item.hash}`}
-                                                className="flex items-center gap-2 text-base font-medium text-gray-900 hover:text-yellow-400 transition-colors px-3 py-2 rounded-md"
+                                                to="/media/posts"
+                                                className="flex items-center gap-2 py-2 px-3 text-sm text-gray-800 hover:text-yellow-600 transition-colors rounded-md"
                                                 onClick={() => setMobileMenuOpen(false)}
                                             >
-                                                <span className="text-lg">{item.icon}</span>
-                                                {item.label}
+                                                <span>📝</span>
+                                                {t("posts")}
                                             </Link>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
+                                            <Link
+                                                to="/media/videos"
+                                                className="flex items-center gap-2 py-2 px-3 text-sm text-gray-800 hover:text-yellow-600 transition-colors rounded-md"
+                                                onClick={() => setMobileMenuOpen(false)}
+                                            >
+                                                <span>🎥</span>
+                                                {t("videos")}
+                                            </Link>
+                                            <Link
+                                                to="/media/galleries"
+                                                className="flex items-center gap-2 py-2 px-3 text-sm text-gray-800 hover:text-yellow-600 transition-colors rounded-md"
+                                                onClick={() => setMobileMenuOpen(false)}
+                                            >
+                                                <span>🖼️</span>
+                                                {t("galleries")}
+                                            </Link>
+                                        </div>
+                                    )}
+                                </div>
 
-                            <Link
-                                to="/contact-us"
-                                className="group relative transition transform hover:scale-105 hover:shadow-lg px-3 py-1 rounded-full"
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                <span className={`text-lg font-medium ${isActive("/contact-us") ? "bg-yellow-400 text-gray-900 font-bold border border-black border-opacity-10" : "text-gray-900 group-hover:bg-yellow-400 group-hover:text-gray-900"} px-3 py-1 rounded-full`}>
-                                    {t("contactUsHeader")}
-                                </span>
-                            </Link>
-
-                            {/* Media Dropdown in Mobile */}
-                            <div className="relative">
-                                <button
-                                    onClick={() => setMediaOpen(!mediaOpen)}
-                                    className="group flex items-center justify-between transition transform hover:scale-105 px-3 py-1 rounded-full focus:outline-none"
+                                <Link
+                                    to="/donate"
+                                    className="group relative py-2 px-3 rounded-md hover:bg-yellow-100 transition-colors"
+                                    onClick={() => setMobileMenuOpen(false)}
                                 >
-                                    <span className={`text-lg font-medium ${isActiveMedia() ? "bg-yellow-400 text-gray-900 font-bold border border-black border-opacity-10" : "text-gray-900 group-hover:bg-yellow-400 group-hover:text-gray-900"} px-3 py-1 rounded-full`}>
-                                        {t("media")}
+                                    <span className={`text-base font-medium ${isActive("/donate") ? "text-yellow-600 font-bold" : "text-gray-900"}`}>
+                                        {t("donateHeader")}
                                     </span>
-                                    <ChevronDownIcon className={`h-5 w-5 transition-transform ${mediaOpen ? "rotate-180" : ""}`} />
-                                </button>
-                                {mediaOpen && (
-                                    <div className="mt-2 pl-4">
-                                        <Link
-                                            to="/media/posts"
-                                            className="flex items-center gap-2 text-base px-4 py-2 transition transform hover:scale-105 hover:text-yellow-300 block"
-                                            onClick={() => setMobileMenuOpen(false)}
-                                        >
-                                            <span className="text-lg">📝</span>
-                                            {t("posts")}
-                                        </Link>
-                                        <Link
-                                            to="/media/videos"
-                                            className="flex items-center gap-2 text-base px-4 py-2 transition transform hover:scale-105 hover:text-yellow-300 block"
-                                            onClick={() => setMobileMenuOpen(false)}
-                                        >
-                                            <span className="text-lg">🎥</span>
-                                            {t("videos")}
-                                        </Link>
-                                        <Link
-                                            to="/media/galleries"
-                                            className="flex items-center gap-2 text-base px-4 py-2 transition transform hover:scale-105 hover:text-yellow-300 block"
-                                            onClick={() => setMobileMenuOpen(false)}
-                                        >
-                                            <span className="text-lg">🖼️</span>
-                                            {t("galleries")}
-                                        </Link>
-                                    </div>
-                                )}
-                            </div>
-
-                            <Link
-                                to="/donate"
-                                className="group relative transition transform hover:scale-105 hover:shadow-lg px-3 py-1 rounded-full"
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                <span className={`text-lg font-medium ${isActive("/donate") ? "bg-yellow-400 text-gray-900 font-bold border border-black border-opacity-10" : "text-gray-900 group-hover:bg-yellow-400 group-hover:text-gray-900"} px-3 py-1 rounded-full`}>
-                                    {t("donateHeader")}
-                                </span>
-                            </Link>
+                                </Link>
+                            </nav>
 
                             {/* Mobile Language Toggle */}
-                            <div className="flex items-center gap-4 mt-6">
+                            <div className="flex items-center justify-center mt-8 pt-4 border-t border-gray-200">
                                 <button
-                                    className={`text-base font-semibold transition duration-300 ${language === "hi" ? "text-yellow-300" : "text-gray-900 hover:text-yellow-300"}`}
+                                    className={`px-4 py-2 rounded-full transition duration-300 ${language === "hi" ? "bg-yellow-400 text-gray-900 font-bold" : "text-gray-700 hover:bg-yellow-100"}`}
                                     onClick={() => changeLanguage("hi")}
                                 >
                                     हिंदी
                                 </button>
-                                <span className="text-gray-900">/</span>
+                                <span className="mx-2 text-gray-400">|</span>
                                 <button
-                                    className={`text-base font-semibold transition duration-300 ${language === "en" ? "text-yellow-300" : "text-gray-900 hover:text-yellow-300"}`}
+                                    className={`px-4 py-2 rounded-full transition duration-300 ${language === "en" ? "bg-yellow-400 text-gray-900 font-bold" : "text-gray-700 hover:bg-yellow-100"}`}
                                     onClick={() => changeLanguage("en")}
                                 >
                                     English
                                 </button>
                             </div>
-                        </nav>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            {/* Spacer to prevent content from being hidden under fixed navbar on mobile */}
+            <div className="md:hidden h-16"></div>
         </nav>
     );
 };
