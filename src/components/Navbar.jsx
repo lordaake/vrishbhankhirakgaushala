@@ -170,23 +170,20 @@ const Navbar = ({ language, changeLanguage }) => {
                 </div>
             </div>
 
-            {/* Mobile Navbar - Redesigned */}
+            {/* Mobile Navbar */}
             <div className="md:hidden fixed top-0 left-0 right-0 z-50">
-                {/* Upper bar with logo and menu button */}
-                <div className="flex items-center justify-between px-4 h-16 bg-gradient-to-r from-indigo-800 to-black backdrop-blur-md shadow-md border-b border-yellow-600">
-                    <div className="flex items-center">
-                        <Link to="/" className="transition-transform hover:scale-105">
-                            <img className="h-10 w-10 drop-shadow-2xl" src={logo} alt="Logo" />
-                        </Link>
-                    </div>
+                <div className="flex items-center justify-between px-3 h-16 bg-gradient-to-r from-indigo-800 to-black backdrop-blur-md shadow-md border-b border-yellow-600">
+                    <Link to="/" className="flex transition-transform hover:scale-105">
+                        <img className="h-10 w-10 drop-shadow-2xl" src={logo} alt="Logo" />
+                    </Link>
 
-                    {/* Centered text container */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 text-center">
+                    {/* Two-line title with reduced font size */}
+                    <div className="flex-1 mx-2">
                         <Link to="/" className="flex flex-col items-center transition hover:opacity-90">
-                            <span className="text-xs font-serif font-bold text-white drop-shadow-md">
+                            <span className="text-xs font-serif font-bold text-white drop-shadow-md whitespace-nowrap">
                                 श्री वृषभान खिरक गौशाला
                             </span>
-                            <span className="text-xs font-serif font-bold text-yellow-300 drop-shadow-md">
+                            <span className="text-xs font-serif font-bold text-yellow-300 drop-shadow-md whitespace-nowrap">
                                 Shri Vrishbhan Khirak Gaushala
                             </span>
                         </Link>
@@ -196,148 +193,142 @@ const Navbar = ({ language, changeLanguage }) => {
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         className="p-2 rounded-full bg-yellow-300/20 hover:bg-yellow-300/40 focus:outline-none transition-all duration-300 ease-in-out"
                         aria-label="Toggle mobile menu"
-                        aria-expanded={mobileMenuOpen}
                     >
                         {mobileMenuOpen ? (
-                            <XMarkIcon className="h-6 w-6 text-yellow-300 transition-transform duration-300 rotate-90" />
+                            <XMarkIcon className="h-6 w-6 text-yellow-300" />
                         ) : (
-                            <Bars3Icon className="h-6 w-6 text-gray-200 hover:text-yellow-300 transition-transform duration-300" />
+                            <Bars3Icon className="h-6 w-6 text-gray-200 hover:text-yellow-300" />
                         )}
                     </button>
                 </div>
 
-                {/* Mobile Menu Overlay */}
-                <div
-                    className={`fixed inset-0 bg-black bg-opacity-50 z-40 ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'} transition-opacity duration-300`}
-                    onClick={() => setMobileMenuOpen(false)}
-                    aria-hidden="true"
-                >
-                    {/* Stop propagation to prevent closing when clicking inside the menu */}
+                {/* Mobile Menu - Left side slide-in */}
+                <div className={`fixed inset-0 md:hidden z-40 transform ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out`}>
                     <div
-                        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-xl overflow-y-auto transform ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <div className="p-5">
-                            <button
+                        className={`fixed inset-0 bg-black bg-opacity-40 transition-opacity duration-300 ${mobileMenuOpen ? "opacity-100 delay-300" : "opacity-0 pointer-events-none"}`}
+                        onClick={() => setMobileMenuOpen(false)}
+                    ></div>
+
+                    <div className="fixed top-0 left-0 w-64 h-full bg-white p-6 overflow-y-auto transition-transform duration-300 ease-in-out">
+                        <button
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="mb-6 p-2 inline-flex items-center justify-center text-gray-900 hover:text-yellow-300 transition focus:outline-none"
+                            aria-label="Close mobile menu"
+                        >
+                            <XMarkIcon className="h-6 w-6" />
+                        </button>
+
+                        <nav className="flex flex-col gap-4">
+                            <Link
+                                to="/"
+                                className="group relative py-2 px-3 rounded-md hover:bg-yellow-100 transition-colors"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="mb-6 p-2 inline-flex items-center justify-center text-gray-900 hover:text-yellow-500 transition focus:outline-none"
-                                aria-label="Close mobile menu"
                             >
-                                <XMarkIcon className="h-6 w-6" />
-                            </button>
+                                <span className={`text-base font-medium ${isActive("/") ? "text-yellow-600 font-bold" : "text-gray-900"}`}>
+                                    {t("home")}
+                                </span>
+                            </Link>
 
-                            <nav className="flex flex-col gap-4">
-                                <Link
-                                    to="/"
-                                    className="group relative py-2 px-3 rounded-md hover:bg-yellow-100 transition-colors"
-                                    onClick={() => setMobileMenuOpen(false)}
+                            {/* About Us Dropdown in Mobile */}
+                            <div className="relative">
+                                <button
+                                    onClick={() => setAboutUsOpen(!aboutUsOpen)}
+                                    className="w-full flex items-center justify-between py-2 px-3 rounded-md hover:bg-yellow-100 transition-colors"
                                 >
-                                    <span className={`text-base font-medium ${isActive("/") ? "text-yellow-600 font-bold" : "text-gray-900"}`}>
-                                        {t("home")}
+                                    <span className={`text-base font-medium ${isActive("/about-us") ? "text-yellow-600 font-bold" : "text-gray-900"}`}>
+                                        {t("aboutUs")}
                                     </span>
-                                </Link>
+                                    <ChevronDownIcon
+                                        className={`h-5 w-5 text-gray-500 transition-transform duration-300 ${aboutUsOpen ? "rotate-180" : ""}`}
+                                    />
+                                </button>
 
-                                {/* About Us Dropdown in Mobile */}
-                                <div className="relative">
-                                    <button
-                                        onClick={() => setAboutUsOpen(!aboutUsOpen)}
-                                        className="w-full flex items-center justify-between py-2 px-3 rounded-md hover:bg-yellow-100 transition-colors"
-                                    >
-                                        <span className={`text-base font-medium ${isActive("/about-us") ? "text-yellow-600 font-bold" : "text-gray-900"}`}>
-                                            {t("aboutUs")}
-                                        </span>
-                                        <ChevronDownIcon
-                                            className={`h-5 w-5 text-gray-500 transition-transform duration-300 ${aboutUsOpen ? "rotate-180" : ""}`}
-                                        />
-                                    </button>
-
-                                    {aboutUsOpen && (
-                                        <div className="mt-1 ml-4 pl-2 border-l-2 border-yellow-300 space-y-1">
-                                            {[
-                                                { to: "/about-us", hash: "#about-us", icon: "🌿", label: t("exploreOurStory.link.aboutUs.title") },
-                                                { to: "/our-history", hash: "#our-history", icon: "📜", label: t("exploreOurStory.link.ourHistory.title") },
-                                                { to: "/our-mission", hash: "#our-mission", icon: "🌱", label: t("exploreOurStory.link.ourMission.title") },
-                                                { to: "/spiritual-significance", hash: "#spiritual-significance", icon: "🪔", label: t("exploreOurStory.link.spiritualSignificance.title") },
-                                                { to: "/activities-at-gaushala", hash: "#activities-at-gaushala", icon: "🐄", label: t("exploreOurStory.link.gaushalaActivities.title") },
-                                            ].map((item, index) => (
-                                                <Link
-                                                    key={index}
-                                                    to={`${item.to}${item.hash}`}
-                                                    className="flex items-center gap-2 py-2 px-3 text-sm text-gray-800 hover:text-yellow-600 transition-colors rounded-md"
-                                                    onClick={() => setMobileMenuOpen(false)}
-                                                >
-                                                    <span>{item.icon}</span>
-                                                    {item.label}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-
-                                <Link
-                                    to="/contact-us"
-                                    className="group relative py-2 px-3 rounded-md hover:bg-yellow-100 transition-colors"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                >
-                                    <span className={`text-base font-medium ${isActive("/contact-us") ? "text-yellow-600 font-bold" : "text-gray-900"}`}>
-                                        {t("contactUsHeader")}
-                                    </span>
-                                </Link>
-
-                                {/* Media Dropdown in Mobile */}
-                                <div className="relative">
-                                    <button
-                                        onClick={() => setMediaOpen(!mediaOpen)}
-                                        className="w-full flex items-center justify-between py-2 px-3 rounded-md hover:bg-yellow-100 transition-colors"
-                                    >
-                                        <span className={`text-base font-medium ${isActiveMedia() ? "text-yellow-600 font-bold" : "text-gray-900"}`}>
-                                            {t("media")}
-                                        </span>
-                                        <ChevronDownIcon
-                                            className={`h-5 w-5 text-gray-500 transition-transform duration-300 ${mediaOpen ? "rotate-180" : ""}`}
-                                        />
-                                    </button>
-
-                                    {mediaOpen && (
-                                        <div className="mt-1 ml-4 pl-2 border-l-2 border-yellow-300 space-y-1">
+                                {aboutUsOpen && (
+                                    <div className="mt-1 ml-4 pl-2 border-l-2 border-yellow-300 space-y-1">
+                                        {[
+                                            { to: "/about-us", hash: "#about-us", icon: "🌿", label: t("exploreOurStory.link.aboutUs.title") },
+                                            { to: "/our-history", hash: "#our-history", icon: "📜", label: t("exploreOurStory.link.ourHistory.title") },
+                                            { to: "/our-mission", hash: "#our-mission", icon: "🌱", label: t("exploreOurStory.link.ourMission.title") },
+                                            { to: "/spiritual-significance", hash: "#spiritual-significance", icon: "🪔", label: t("exploreOurStory.link.spiritualSignificance.title") },
+                                            { to: "/activities-at-gaushala", hash: "#activities-at-gaushala", icon: "🐄", label: t("exploreOurStory.link.gaushalaActivities.title") },
+                                        ].map((item, index) => (
                                             <Link
-                                                to="/media/posts"
+                                                key={index}
+                                                to={`${item.to}${item.hash}`}
                                                 className="flex items-center gap-2 py-2 px-3 text-sm text-gray-800 hover:text-yellow-600 transition-colors rounded-md"
                                                 onClick={() => setMobileMenuOpen(false)}
                                             >
-                                                <span>📝</span>
-                                                {t("posts")}
+                                                <span>{item.icon}</span>
+                                                {item.label}
                                             </Link>
-                                            <Link
-                                                to="/media/videos"
-                                                className="flex items-center gap-2 py-2 px-3 text-sm text-gray-800 hover:text-yellow-600 transition-colors rounded-md"
-                                                onClick={() => setMobileMenuOpen(false)}
-                                            >
-                                                <span>🎥</span>
-                                                {t("videos")}
-                                            </Link>
-                                            <Link
-                                                to="/media/galleries"
-                                                className="flex items-center gap-2 py-2 px-3 text-sm text-gray-800 hover:text-yellow-600 transition-colors rounded-md"
-                                                onClick={() => setMobileMenuOpen(false)}
-                                            >
-                                                <span>🖼️</span>
-                                                {t("galleries")}
-                                            </Link>
-                                        </div>
-                                    )}
-                                </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
 
-                                <Link
-                                    to="/donate"
-                                    className="group relative py-2 px-3 rounded-md hover:bg-yellow-100 transition-colors"
-                                    onClick={() => setMobileMenuOpen(false)}
+                            <Link
+                                to="/contact-us"
+                                className="group relative py-2 px-3 rounded-md hover:bg-yellow-100 transition-colors"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                <span className={`text-base font-medium ${isActive("/contact-us") ? "text-yellow-600 font-bold" : "text-gray-900"}`}>
+                                    {t("contactUsHeader")}
+                                </span>
+                            </Link>
+
+                            {/* Media Dropdown in Mobile */}
+                            <div className="relative">
+                                <button
+                                    onClick={() => setMediaOpen(!mediaOpen)}
+                                    className="w-full flex items-center justify-between py-2 px-3 rounded-md hover:bg-yellow-100 transition-colors"
                                 >
-                                    <span className={`text-base font-medium ${isActive("/donate") ? "text-yellow-600 font-bold" : "text-gray-900"}`}>
-                                        {t("donateHeader")}
+                                    <span className={`text-base font-medium ${isActiveMedia() ? "text-yellow-600 font-bold" : "text-gray-900"}`}>
+                                        {t("media")}
                                     </span>
-                                </Link>
-                            </nav>
+                                    <ChevronDownIcon
+                                        className={`h-5 w-5 text-gray-500 transition-transform duration-300 ${mediaOpen ? "rotate-180" : ""}`}
+                                    />
+                                </button>
+
+                                {mediaOpen && (
+                                    <div className="mt-1 ml-4 pl-2 border-l-2 border-yellow-300 space-y-1">
+                                        <Link
+                                            to="/media/posts"
+                                            className="flex items-center gap-2 py-2 px-3 text-sm text-gray-800 hover:text-yellow-600 transition-colors rounded-md"
+                                            onClick={() => setMobileMenuOpen(false)}
+                                        >
+                                            <span>📝</span>
+                                            {t("posts")}
+                                        </Link>
+                                        <Link
+                                            to="/media/videos"
+                                            className="flex items-center gap-2 py-2 px-3 text-sm text-gray-800 hover:text-yellow-600 transition-colors rounded-md"
+                                            onClick={() => setMobileMenuOpen(false)}
+                                        >
+                                            <span>🎥</span>
+                                            {t("videos")}
+                                        </Link>
+                                        <Link
+                                            to="/media/galleries"
+                                            className="flex items-center gap-2 py-2 px-3 text-sm text-gray-800 hover:text-yellow-600 transition-colors rounded-md"
+                                            onClick={() => setMobileMenuOpen(false)}
+                                        >
+                                            <span>🖼️</span>
+                                            {t("galleries")}
+                                        </Link>
+                                    </div>
+                                )}
+                            </div>
+
+                            <Link
+                                to="/donate"
+                                className="group relative py-2 px-3 rounded-md hover:bg-yellow-100 transition-colors"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                <span className={`text-base font-medium ${isActive("/donate") ? "text-yellow-600 font-bold" : "text-gray-900"}`}>
+                                    {t("donateHeader")}
+                                </span>
+                            </Link>
 
                             {/* Mobile Language Toggle */}
                             <div className="flex items-center justify-center mt-8 pt-4 border-t border-gray-200">
@@ -355,13 +346,11 @@ const Navbar = ({ language, changeLanguage }) => {
                                     English
                                 </button>
                             </div>
-                        </div>
+                        </nav>
                     </div>
                 </div>
             </div>
 
-            {/* Spacer to prevent content from being hidden under fixed navbar on mobile */}
-            <div className="md:hidden h-16"></div>
         </nav>
     );
 };
