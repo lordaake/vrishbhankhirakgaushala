@@ -92,48 +92,48 @@ const Carousel = () => {
                             ))}
                         </div>
 
-                        {/* More Info button - much shorter */}
+                        {/* "More" button as requested */}
                         <Link
                             to="/about-us"
-                            className="absolute bottom-4 right-4 z-20 inline-flex items-center bg-amber-400 hover:bg-amber-500 text-amber-900 py-1 px-2.5 rounded-full text-xs font-medium transition-colors shadow-md"
+                            className="absolute bottom-4 right-4 z-20 inline-flex items-center bg-amber-400 hover:bg-amber-500 text-amber-900 py-1.5 px-3.5 rounded-full text-xs font-medium transition-colors shadow-md"
                         >
-                            More <ArrowRightIcon className="ml-1 w-3 h-3" />
+                            More <ArrowRightIcon className="ml-1 w-3.5 h-3.5" />
                         </Link>
                     </div>
 
-                    {/* Navigation Controls */}
-                    <div className="absolute left-0 right-0 top-1/2 transform -translate-y-1/2 flex justify-between px-2 z-20">
+                    {/* Further enlarged Navigation Controls for better visibility */}
+                    <div className="absolute left-0 right-0 top-1/2 transform -translate-y-1/2 flex justify-between px-4 z-20">
                         <button
                             onClick={() => {
                                 setIsManual(true);
                                 goToPrevious();
                             }}
-                            className="bg-black/30 hover:bg-black/50 text-white rounded-full p-1 transition-all"
+                            className="bg-black/50 hover:bg-black/70 text-white rounded-full p-2.5 md:p-3.5 transition-all shadow-md"
                             aria-label="Previous slide"
                         >
-                            <ChevronLeftIcon className="w-4 h-4" />
+                            <ChevronLeftIcon className="w-6 h-6 md:w-7 md:h-7" />
                         </button>
                         <button
                             onClick={() => {
                                 setIsManual(true);
                                 goToNext();
                             }}
-                            className="bg-black/30 hover:bg-black/50 text-white rounded-full p-1 transition-all"
+                            className="bg-black/50 hover:bg-black/70 text-white rounded-full p-2.5 md:p-3.5 transition-all shadow-md"
                             aria-label="Next slide"
                         >
-                            <ChevronRightIcon className="w-4 h-4" />
+                            <ChevronRightIcon className="w-6 h-6 md:w-7 md:h-7" />
                         </button>
                     </div>
 
-                    {/* Indicators */}
-                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+                    {/* Improved Indicators */}
+                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
                         {images.map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => handleManualNavigation(index)}
-                                className={`w-2 h-2 rounded-full transition-all ${index === currentIndex
-                                    ? "bg-amber-400"
-                                    : "bg-white/40 hover:bg-white/60"
+                                className={`w-3 h-3 rounded-full transition-all ${index === currentIndex
+                                        ? "bg-amber-400 w-5"
+                                        : "bg-white/60 hover:bg-white/80"
                                     }`}
                                 aria-label={`Go to slide ${index + 1}`}
                             />
