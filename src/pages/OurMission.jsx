@@ -63,7 +63,7 @@ const OurMission = () => {
                             />
                             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#2c5c7a] to-transparent p-3">
                                 <span className="text-white font-medium text-sm block text-center">
-                                    {t("missionImageCaption")}
+                                    {t("clickToExpand")}
                                 </span>
                             </div>
                         </div>

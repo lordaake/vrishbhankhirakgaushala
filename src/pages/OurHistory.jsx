@@ -65,12 +65,12 @@ const OurHistory = () => {
                                         <div className="absolute inset-0 bg-[#5d4c3a] rounded-lg transform rotate-1 -z-10" />
                                         <img
                                             src={img}
-                                            alt={t(`ourHistory.image${index + 1}Alt`)}
+                                            alt={t(`clickToExpand`)}
                                             className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-lg shadow-md border-2 sm:border-4 border-[#e3d5c1] transition-transform duration-300 group-hover:scale-[0.98] group-hover:rotate-1 filter sepia-[0.3]"
                                         />
                                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#5d4c3a] to-transparent p-3">
                                             <span className="text-white font-medium text-sm block text-center">
-                                                {t(`ourHistory.image${index + 1}Caption`)}
+                                                {t(`clickToExpand`)}
                                             </span>
                                         </div>
                                     </div>
@@ -108,7 +108,7 @@ const OurHistory = () => {
                                 />
                                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#5d4c3a] to-transparent p-3">
                                     <span className="text-white font-medium text-sm block text-center">
-                                        {t("ourHistory.image3Caption")}
+                                        {t("clickToExpand")}
                                     </span>
                                 </div>
                             </div>
