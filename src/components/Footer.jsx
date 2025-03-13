@@ -54,7 +54,7 @@ const Footer = () => {
 
                             {/* Social Media Links */}
                             <h3 className="text-white text-lg font-serif mb-4">
-                                {t("connectWithUs", "Connect With Us")}
+                                {t("contactUs.connectWithUsTitle")}
                             </h3>
                             <div className="flex gap-6">
                                 <a
@@ -80,7 +80,12 @@ const Footer = () => {
                     </div>
 
                     {/* Right side - Location with cow icon */}
-                    <div className="rounded-lg p-5 bg-white/5 border border-white/10 shadow-lg flex items-center order-1 md:order-2">
+                    <a
+                        href="https://www.google.com/maps?ll=27.651865,77.370343&z=16&t=m&hl=en&gl=IN&mapclient=embed&cid=2356758655689443059"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-lg p-5 bg-white/5 border border-white/10 shadow-lg flex items-center order-1 md:order-2 hover:bg-white/10 transition-colors duration-300 cursor-pointer"
+                    >
                         <div className="flex items-start">
                             <div className="relative">
                                 <div className="bg-yellow-400/20 p-3 rounded-full flex-shrink-0 relative z-10">
@@ -92,17 +97,18 @@ const Footer = () => {
                             </div>
                             <div className="ml-4">
                                 <h3 className="text-white text-lg font-serif mb-2">
-                                    {t("visitUs", "Visit Us")}
+                                    {t("contactUs.visitUsTitle")}
                                 </h3>
                                 <p className="text-white font-serif mb-1">
-                                    Vrishabhanu Khirak Gaushala
+                                    {t("addressFooter1")}
                                 </p>
                                 <p className="text-white/80 text-sm font-serif">
-                                    Barsana, Uttar Pradesh, India
+                                    {t("addressFooter2")}
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </a>
+
                 </div>
 
                 {/* Divider with Om symbol */}
