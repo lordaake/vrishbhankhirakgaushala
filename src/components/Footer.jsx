@@ -84,11 +84,11 @@ const Footer = () => {
                         href="https://www.google.com/maps?ll=27.651865,77.370343&z=16&t=m&hl=en&gl=IN&mapclient=embed&cid=2356758655689443059"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-lg p-5 bg-white/5 border border-white/10 shadow-lg flex items-center order-1 md:order-2 hover:bg-white/10 transition-colors duration-300 cursor-pointer"
+                        className="rounded-lg p-5 bg-white/5 border border-white/10 shadow-lg flex items-center order-1 md:order-2 hover:bg-white/10 transition-colors duration-300 cursor-pointer relative group"
                     >
                         <div className="flex items-start">
                             <div className="relative">
-                                <div className="bg-yellow-400/20 p-3 rounded-full flex-shrink-0 relative z-10">
+                                <div className="bg-yellow-400/20 p-3 rounded-full flex-shrink-0 relative z-10 group-hover:bg-yellow-400/40 transition-colors duration-300">
                                     <FaMapMarkerAlt className="w-5 h-5 text-yellow-300" />
                                 </div>
                                 <div className="absolute -top-4 -right-4 text-amber-200/20">
@@ -96,18 +96,23 @@ const Footer = () => {
                                 </div>
                             </div>
                             <div className="ml-4">
-                                <h3 className="text-white text-lg font-serif mb-2">
+                                <h3 className="text-white text-lg font-serif mb-2 flex items-center">
                                     {t("contactUs.visitUsTitle")}
+                                    <span className="ml-2 text-yellow-300">→</span>
                                 </h3>
                                 <p className="text-white font-serif mb-1">
                                     {t("addressFooter1")}
                                 </p>
-                                <p className="text-white/80 text-sm font-serif">
+                                <p className="text-white/80 text-sm font-serif group-hover:text-white transition-colors duration-300">
                                     {t("addressFooter2")}
                                 </p>
                             </div>
                         </div>
+
+                        {/* Subtle indicator at bottom instead of top button */}
+                        <div className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-300/0 group-hover:bg-yellow-300/60 transition-all duration-300"></div>
                     </a>
+
 
                 </div>
 
